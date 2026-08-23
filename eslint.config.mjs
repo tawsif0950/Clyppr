@@ -8,4 +8,12 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig([{
     extends: [...next],
+}, {
+    rules: {
+        "no-irregular-whitespace": "error",
+        "no-restricted-syntax": ["error", {
+            selector: "Literal[value=/\\u2014|\\u2013/]",
+            message: "Em dash and en dash are forbidden. Use hyphen - instead."
+        }]
+    }
 }]);

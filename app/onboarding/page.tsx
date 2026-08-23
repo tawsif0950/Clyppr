@@ -97,7 +97,7 @@ export default function Onboarding() {
       <div className="w-full max-w-xl bg-[#111] border border-white/10 rounded-[2rem] p-8">
         <p className="text-sm text-zinc-500 mb-2">Step {step} / {role==='creator'?4:5}</p>
         <h1 className="text-3xl font-bold mb-1">Welcome to Clyppr</h1>
-        <p className="text-zinc-400 mb-6 text-sm">Anyone who signs in gets an account — finish setup to continue.</p>
+        <p className="text-zinc-400 mb-6 text-sm">Anyone who signs in gets an account - finish setup to continue.</p>
         {err && <div className="bg-red-500/10 border border-red-500/20 text-red-300 p-3 rounded-xl mb-4 text-sm">{err}</div>}
 
         {step===1 && (

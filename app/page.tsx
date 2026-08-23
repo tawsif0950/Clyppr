@@ -102,6 +102,7 @@ export default function LandingPage() {
               </SignUpButton>
             </Show>
             <Show when="signed-in">
+              <a href="/dashboard" className="hidden sm:inline-flex px-4 py-2 rounded-full bg-white text-black font-bold text-sm hover:scale-[1.02] transition-transform ml-1">Go to Dashboard</a>
               <UserButton />
             </Show>
             <button 
@@ -137,7 +138,8 @@ export default function LandingPage() {
                   </SignUpButton>
                 </Show>
                 <Show when="signed-in">
-                  <UserButton />
+                  <a href="/dashboard" className="w-full py-3 rounded-xl bg-white text-black font-bold text-center block">Go to Dashboard</a>
+                  <div className="flex justify-center pt-2"><UserButton /></div>
                 </Show>
               </div>
             </motion.div>
