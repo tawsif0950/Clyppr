@@ -1,0 +1,8 @@
+{
+  "name": "ClipRush Landing Page",
+  "description": "A modern, premium landing page for ClipRush, a two-sided marketplace for brands and video clippers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
