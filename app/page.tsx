@@ -90,12 +90,12 @@ export default function LandingPage() {
           
           <div className="flex items-center gap-2 pr-1">
             <Show when="signed-out">
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" fallbackRedirectUrl="/dashboard" forceRedirectUrl="/dashboard">
                 <button className="px-4 py-2 text-zinc-400 font-semibold text-sm hover:text-white transition-colors hidden sm:block">
                   Log in
                 </button>
               </SignInButton>
-              <SignUpButton mode="modal">
+              <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
                 <button className="px-6 py-2.5 rounded-full bg-gradient-to-b from-white to-zinc-200 text-black font-bold text-sm hover:scale-[1.02] active:scale-[0.98] transition-transform hidden sm:block shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                   Sign up
                 </button>
@@ -125,12 +125,12 @@ export default function LandingPage() {
             >
               <div className="flex flex-col gap-3">
                 <Show when="signed-out">
-                  <SignInButton mode="modal">
+                  <SignInButton mode="modal" fallbackRedirectUrl="/dashboard" forceRedirectUrl="/dashboard">
                     <button className="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors">
                       Log in
                     </button>
                   </SignInButton>
-                  <SignUpButton mode="modal">
+                  <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
                     <button className="w-full py-3 rounded-xl bg-gradient-to-b from-white to-zinc-200 text-black font-bold hover:scale-[1.02] active:scale-[0.98] transition-transform">
                       Sign up
                     </button>
@@ -228,12 +228,12 @@ export default function LandingPage() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row items-center gap-4 mb-12 w-full sm:w-auto px-6 sm:px-0"
           >
-            <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+            <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
               <button className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-b from-white to-zinc-200 text-black font-bold text-base hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                 Start Earning
               </button>
             </SignUpButton>
-            <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+            <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
               <button className="w-full sm:w-auto px-8 py-3.5 rounded-full text-zinc-300 font-bold text-base hover:text-white hover:bg-white/10 transition-all border border-white/20">
                 Run a Campaign
               </button>
@@ -327,7 +327,7 @@ export default function LandingPage() {
             </div>
             
             <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
-               <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+               <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
                  <button className="text-white font-bold flex items-center gap-3 group/btn">
                    Launch Campaign
                    <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-colors">
@@ -358,7 +358,7 @@ export default function LandingPage() {
             </div>
 
             <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
-               <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+               <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
                  <button className="text-white font-bold flex items-center gap-3 group/btn">
                    Start Earning
                    <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-colors">
@@ -501,12 +501,12 @@ export default function LandingPage() {
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white relative z-10">Start scaling today.</h2>
           <p className="text-xl text-zinc-400 mb-10 max-w-xl mx-auto relative z-10">Join the marketplace where content creators and brands grow together.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-            <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+            <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
               <button className="px-8 py-4 rounded-full text-zinc-300 font-bold text-lg hover:text-white hover:bg-white/5 transition-all border border-white/10 hover:border-white/20">
                 Launch Campaign
               </button>
             </SignUpButton>
-            <SignUpButton mode="modal" forceRedirectUrl="/" signInForceRedirectUrl="/">
+            <SignUpButton mode="modal" fallbackRedirectUrl="/onboarding" forceRedirectUrl="/onboarding">
               <button className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
                 Start Earning <ArrowRight className="w-5 h-5" />
               </button>
