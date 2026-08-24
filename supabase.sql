@@ -15,6 +15,7 @@ create table if not exists profiles (
   industry text,
   country text,
   estimated_monthly_range text,
+  balance numeric default 0,
   onboarding_completed boolean default false,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
@@ -30,6 +31,7 @@ alter table profiles add column if not exists business_website text;
 alter table profiles add column if not exists business_name text;
 alter table profiles add column if not exists location text;
 alter table profiles add column if not exists language text;
+alter table profiles add column if not exists balance numeric default 0;
 
 create or replace function handle_updated_at() returns trigger as $$ begin new.updated_at = now(); return new; end; $$ language plpgsql;
 drop trigger if exists profiles_updated_at on profiles;

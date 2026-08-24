@@ -61,11 +61,10 @@ export default async function CreatorDash() {
         <div className="mt-10 bg-[#111] rounded-[1.5rem] p-6 border border-white/10">
           <p className="font-bold text-white">{user?.fullName || data.display_name}</p>
           <p className="text-sm text-zinc-400">{user?.primaryEmailAddress?.emailAddress}</p>
-          <Link href="/dashboard/creator/settings" className="mt-4 block text-center py-3 bg-white text-black rounded-full font-bold">Settings / Edit profile</Link>
-          <div className="mt-3 flex justify-between font-bold text-white"><span>Give feedback</span><span>-&gt;</span></div>
-          <div className="mt-3 flex justify-between font-bold text-white"><span>Help center</span><span>-&gt;</span></div>
-          <a href="/sign-out" className="mt-3 block font-bold text-white">Log out</a>
-          <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 flex gap-3"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Clipper Terms</a></div>
+          <Link href="/dashboard/creator/settings" className="mt-4 block text-center py-3 bg-white text-black rounded-full font-bold">Edit profile</Link>
+          <Link href="/support" className="flex mt-3 justify-between font-bold text-white"><span>Support</span><span>-&gt;</span></Link>
+          <Link href="/sign-out" className="mt-3 block font-bold text-white">Log out</Link>
+          <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 flex gap-3"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/terms">Clipper Terms</Link></div>
         </div>
       </main>
     </div>

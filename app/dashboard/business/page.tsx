@@ -36,7 +36,17 @@ export default async function BusinessDash() {
         <h1 className="text-4xl font-bold text-center leading-tight text-white">Welcome to the<br />{team} team</h1>
         <p className="text-center text-zinc-400 mt-3">Stay up to date with your campaigns here.</p>
 
-        <div className="mt-10 space-y-4">
+        <div className="bg-[#111] rounded-[1.75rem] p-6 border border-white/10 mt-10">
+          <p className="text-sm text-zinc-400">Balance</p>
+          <p className="text-3xl font-bold text-white mt-1">${Number((data as unknown as {balance:number}).balance || 0).toFixed(2)}</p>
+          <div className="flex gap-3 mt-4">
+            <Link href="/dashboard/business/balance/add" className="flex-1 py-3 rounded-full bg-white text-black font-bold text-center">Add funds</Link>
+            <Link href="/dashboard/business/balance/withdraw" className="flex-1 py-3 rounded-full border border-white/20 text-white font-bold text-center">Withdraw</Link>
+          </div>
+          <p className="text-xs text-zinc-500 mt-2">Add funds via USDC/USDT. Withdraw to your wallet.</p>
+        </div>
+
+        <div className="mt-6 space-y-4">
           <Link href="/dashboard/business/campaigns/new" className="flex items-center gap-4 bg-[#111] rounded-[1.75rem] p-6 border border-white/10 hover:bg-white/5 transition-colors">
             <span className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 grid place-items-center text-2xl text-white">+</span>
             <span><span className="font-bold text-lg block text-white">Run a campaign</span><span className="text-sm text-zinc-400">Set up and launch a new campaign.</span></span>
@@ -57,11 +67,11 @@ export default async function BusinessDash() {
             <p className="text-sm text-zinc-400">{user?.primaryEmailAddress?.emailAddress}</p>
           </div>
           <div className="mt-4 space-y-3">
-            <Link href="/dashboard/business/settings" className="block text-center py-3 bg-white text-black rounded-full font-bold">Settings / Edit profile</Link>
-            <a href="#" className="flex justify-between font-bold text-white">Support <span>-&gt;</span></a>
-            <a href="/sign-out" className="font-bold text-white">Log out</a>
+            <Link href="/dashboard/business/settings" className="block text-center py-3 bg-white text-black rounded-full font-bold">Edit profile</Link>
+            <Link href="/support" className="flex justify-between font-bold text-white">Support <span>-&gt;</span></Link>
+            <Link href="/sign-out" className="font-bold text-white">Log out</Link>
           </div>
-          <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 flex gap-3"><a href="#">Privacy</a><a href="#">Terms</a></div>
+          <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 flex gap-3"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
         </div>
       </main>
     </div>

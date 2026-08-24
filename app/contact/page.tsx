@@ -1,0 +1,1 @@
+export default function Contact(){ return <div className="min-h-screen bg-[#050505] text-zinc-50 p-8"><div className="max-w-3xl mx-auto"><h1 className="text-4xl font-bold">Contact</h1><p className="text-zinc-400 mt-4">Email us at support@clyppr.com</p><a href="/" className="mt-8 inline-block text-white underline">Back to home</a></div></div>; }

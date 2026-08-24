@@ -1,0 +1,1 @@
+export default function Support(){ return <div className="min-h-screen bg-[#050505] text-zinc-50 p-8"><div className="max-w-3xl mx-auto"><h1 className="text-4xl font-bold">Support</h1><p className="text-zinc-400 mt-4">Need help? Contact support@clyppr.com or check our FAQ.</p><a href="/faq" className="mt-4 inline-block text-white underline">FAQ</a></div></div>; }

@@ -538,19 +538,19 @@ export default function LandingPage() {
           <div>
             <h4 className="font-bold mb-4 text-white">Platform</h4>
             <ul className="flex flex-col gap-3 text-sm font-medium text-zinc-400">
-              <li><a href="#brands" className="hover:text-white transition-colors">For Brands</a></li>
-              <li><a href="#campaigns" className="hover:text-white transition-colors">Campaigns</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="/for-brands" className="hover:text-white transition-colors">For Brands</a></li>
+              <li><a href="/campaigns" className="hover:text-white transition-colors">Campaigns</a></li>
+              <li><a href="/how-it-works" className="hover:text-white transition-colors">How it Works</a></li>
+              <li><a href="/faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold mb-4 text-white">Company</h4>
             <ul className="flex flex-col gap-3 text-sm font-medium text-zinc-400">
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>

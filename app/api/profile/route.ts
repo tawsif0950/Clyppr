@@ -14,7 +14,17 @@ export async function POST(req: Request) {
   if (!userId) return Response.json({ error: 'Unauthorized' }, { status: 401 });
   const body = await req.json();
   const supa = await createClient();
+  if (typeof body.balance_increment === 'number') {
+    const { data: cur } = await supa.from('profiles').select('balance').eq('clerk_id', userId).single();
+    const curBal = Number((cur as { balance: number } | null)?.balance || 0);
+    const next = curBal + Number(body.balance_increment);
+    if (next < 0) return Response.json({ error: 'Insufficient balance' }, { status: 400 });
+    const { data, error } = await supa.from('profiles').update({ balance: next }).eq('clerk_id', userId).select().single();
+    if (error) return Response.json({ error: error.message }, { status: 400 });
+    return Response.json(data);
+  }
   const payload: Record<string, unknown> = { clerk_id: userId, ...body, updated_at: new Date().toISOString() };
+  delete (payload as Record<string, unknown>).balance_increment;
   // validate username format if present
   if (payload.username) {
     const u = String(payload.username).toLowerCase().replace(/^@/, '').trim();
