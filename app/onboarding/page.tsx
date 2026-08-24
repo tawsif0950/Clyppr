@@ -65,6 +65,7 @@ export default function Onboarding() {
   async function submit() {
     setErr(''); setLoading(true);
     const avatar_url = await uploadAvatar();
+    if (file && user) { try { await (user as unknown as { setProfileImage: (o:{file:File})=>Promise<unknown> }).setProfileImage({ file }); } catch {} }
     if (err) { setLoading(false); return; }
     const payload: Record<string, unknown> = { role: role!, onboarding_completed: true, avatar_url: avatar_url || preview || user?.imageUrl || null };
     if (role==='creator') {
@@ -151,23 +152,23 @@ export default function Onboarding() {
         {step===4 && role==='creator' && (
           <div className="space-y-4">
             <label className="block"><span className="text-sm text-zinc-400">Location</span><input value={location} onChange={e=>setLocation(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3" placeholder="Dhaka, Bangladesh" /></label>
-            <label className="block"><span className="text-sm text-zinc-400">Language</span><select value={language} onChange={e=>setLanguage(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3"><option value="en">English</option><option value="ar">Arabic</option><option value="bn">Bengali</option><option value="hi">Hindi</option></select></label>
+            <label className="block"><span className="text-sm text-zinc-400">Language</span><select value={language} onChange={e=>setLanguage(e.target.value)} className="mt-1 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-white"><option className="bg-[#111] text-white" value="en">English</option><option className="bg-[#111] text-white" value="ar">Arabic</option><option className="bg-[#111] text-white" value="bn">Bengali</option><option className="bg-[#111] text-white" value="hi">Hindi</option></select></label>
             <div className="flex gap-3"><button onClick={()=>setStep(3)} className="px-6 py-3 rounded-full border border-white/10">Back</button><button onClick={submit} disabled={loading} className="flex-1 py-3 rounded-full bg-white text-black font-bold disabled:opacity-40">{loading?'Saving…':'Finish → Creator Dashboard'}</button></div>
           </div>
         )}
 
         {step===4 && role==='business' && (
           <div className="space-y-4">
-            <label className="block"><span className="text-sm text-zinc-400">Industry *</span><select value={industry} onChange={e=>setIndustry(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3"><option value="">Select</option>{INDUSTRIES.map(v=><option key={v} value={v}>{v}</option>)}</select></label>
-            <label className="block"><span className="text-sm text-zinc-400">Country *</span><select value={country} onChange={e=>setCountry(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3"><option value="">Select</option>{COUNTRIES.map(v=><option key={v} value={v}>{v}</option>)}</select></label>
+            <label className="block"><span className="text-sm text-zinc-400">Industry *</span><select value={industry} onChange={e=>setIndustry(e.target.value)} className="mt-1 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-white"><option className="bg-[#111] text-white" value="">Select</option>{INDUSTRIES.map(v=><option key={v} value={v} className="bg-[#111] text-white">{v}</option>)}</select></label>
+            <label className="block"><span className="text-sm text-zinc-400">Country *</span><select value={country} onChange={e=>setCountry(e.target.value)} className="mt-1 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-white"><option className="bg-[#111] text-white" value="">Select</option>{COUNTRIES.map(v=><option key={v} value={v} className="bg-[#111] text-white">{v}</option>)}</select></label>
             <div className="flex gap-3"><button onClick={()=>setStep(3)} className="px-6 py-3 rounded-full border border-white/10">Back</button><button onClick={()=>setStep(5)} disabled={!industry||!country} className="flex-1 py-3 rounded-full bg-white text-black font-bold disabled:opacity-40">Next</button></div>
           </div>
         )}
 
         {step===5 && role==='business' && (
           <div className="space-y-4">
-            <label className="block"><span className="text-sm text-zinc-400">Estimated monthly spend *</span><select value={range} onChange={e=>setRange(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3"><option value="">Select</option>{RANGES.map(v=><option key={v} value={v}>{v}</option>)}</select></label>
-            <label className="block"><span className="text-sm text-zinc-400">Language</span><select value={language} onChange={e=>setLanguage(e.target.value)} className="mt-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3"><option value="en">English</option><option value="ar">Arabic</option><option value="bn">Bengali</option><option value="hi">Hindi</option></select></label>
+            <label className="block"><span className="text-sm text-zinc-400">Estimated monthly spend *</span><select value={range} onChange={e=>setRange(e.target.value)} className="mt-1 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-white"><option className="bg-[#111] text-white" value="">Select</option>{RANGES.map(v=><option key={v} value={v} className="bg-[#111] text-white">{v}</option>)}</select></label>
+            <label className="block"><span className="text-sm text-zinc-400">Language</span><select value={language} onChange={e=>setLanguage(e.target.value)} className="mt-1 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-white"><option className="bg-[#111] text-white" value="en">English</option><option className="bg-[#111] text-white" value="ar">Arabic</option><option className="bg-[#111] text-white" value="bn">Bengali</option><option className="bg-[#111] text-white" value="hi">Hindi</option></select></label>
             <div className="flex gap-3"><button onClick={()=>setStep(4)} className="px-6 py-3 rounded-full border border-white/10">Back</button><button onClick={submit} disabled={!range||loading} className="flex-1 py-3 rounded-full bg-white text-black font-bold disabled:opacity-40">{loading?'Saving…':'Finish → Business Dashboard'}</button></div>
           </div>
         )}
