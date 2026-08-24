@@ -15,16 +15,23 @@ export default async function CreatorDash() {
   const logo = 'https://www.pixelhost.fun/uploads/2026/08/image-1787425436512-b8bfyt.png';
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-50 flex flex-col">
-      <header className="bg-[#0A0A0A] border-b border-white/10 px-6 py-4 flex items-center justify-between sticky top-0 z-20">
-        <div className="flex items-center gap-3"><img src={logo} alt="Clyppr" className="w-7 h-7 mix-blend-screen" /><span className="font-black text-xl tracking-tight text-white">Clyppr</span><span className="text-[10px] font-bold bg-white text-black px-2 py-0.5 rounded-full">BETA</span></div>
-        <div className="flex items-center gap-4">
-          <span className="w-8 h-8 grid place-items-center text-zinc-400">bell</span>
-          <span className="w-8 h-8 grid place-items-center text-zinc-400">discord</span>
-          <span className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden grid place-items-center">{data.avatar_url ? <img src={data.avatar_url} alt="a" className="w-full h-full object-cover" /> : <span className="text-zinc-400">o</span>}</span>
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl">
+        <div className="flex items-center justify-between p-1.5 bg-[#111111]/80 backdrop-blur-3xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <Link href="/dashboard/creator" className="flex items-center gap-3 pl-4">
+            <img src={logo} alt="Clyppr" className="w-7 h-7 mix-blend-screen" />
+            <span className="font-bold text-white">Clyppr</span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <span className="hidden sm:block text-zinc-500 text-sm">bell</span>
+            <span className="hidden sm:block text-zinc-500 text-sm">discord</span>
+            <Link href="/dashboard/creator/settings" className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 overflow-hidden grid place-items-center">
+              {data.avatar_url ? <img src={data.avatar_url} alt="a" className="w-full h-full object-cover" /> : <span className="text-zinc-400">o</span>}
+            </Link>
+          </div>
         </div>
-      </header>
+      </nav>
 
-      <main className="flex-1 max-w-3xl mx-auto w-full px-6 py-8 pb-28">
+      <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-28 pb-10">
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-3xl font-bold text-white">My stats</h1>
@@ -51,26 +58,16 @@ export default async function CreatorDash() {
           </div>
         </div>
 
-        <details className="mt-10 bg-[#111] rounded-[1.5rem] p-6 border border-white/10">
-          <summary className="list-none font-medium cursor-pointer text-white">Profile menu</summary>
-          <div className="mt-4">
-            <p className="font-bold text-white">{user?.fullName || data.display_name}</p>
-            <p className="text-sm text-zinc-400">{user?.primaryEmailAddress?.emailAddress}</p>
-          </div>
-          <Link href="/dashboard/creator/settings" className="mt-4 block text-center py-3 bg-white text-black rounded-full font-bold">Settings</Link>
+        <div className="mt-10 bg-[#111] rounded-[1.5rem] p-6 border border-white/10">
+          <p className="font-bold text-white">{user?.fullName || data.display_name}</p>
+          <p className="text-sm text-zinc-400">{user?.primaryEmailAddress?.emailAddress}</p>
+          <Link href="/dashboard/creator/settings" className="mt-4 block text-center py-3 bg-white text-black rounded-full font-bold">Settings / Edit profile</Link>
           <div className="mt-3 flex justify-between font-bold text-white"><span>Give feedback</span><span>-&gt;</span></div>
           <div className="mt-3 flex justify-between font-bold text-white"><span>Help center</span><span>-&gt;</span></div>
           <a href="/sign-out" className="mt-3 block font-bold text-white">Log out</a>
           <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 flex gap-3"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Clipper Terms</a></div>
-        </details>
+        </div>
       </main>
-
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#111] rounded-full shadow-xl border border-white/10 flex items-center p-2">
-        <span className="px-5 py-3 rounded-full bg-white text-black font-bold text-sm">Home</span>
-        <Link href="/discover" className="px-5 py-3 text-sm text-zinc-400">Discover</Link>
-        <Link href="/dashboard/creator/clips/new" className="px-5 py-3 text-sm text-zinc-400">Add Clips</Link>
-        <Link href="/dashboard/creator/earnings" className="px-5 py-3 text-sm text-zinc-400">Earnings</Link>
-      </nav>
     </div>
   );
 }
